@@ -4,12 +4,12 @@ namespace ST.CrossCutting.Interfaces.Repositories
 {
     public interface IPersonRepository
     {
-        Task PostPerson(PersonTO person);
-        Task<PersonTO> GetPerson(int id);
-        Task UpdatePerson(PersonTO person);
+        Task CreatePerson(PersonTO person);
+        Task<PersonTO> ReadPerson(int id);
+        Task UpdatePerson(int id, PersonTO person);
         Task DeletePerson(int id);
-        Task<CityTO> GetCity(int id);
-        Task PostCity(CityTO city);
-        Task UpdateCity(CityTO city);
+        Task<CityTO> ReadCity(int id);
+        Task CreateCity(CityTO city);
+        Task UpdateCity(int id,CityTO city);
     }
 }

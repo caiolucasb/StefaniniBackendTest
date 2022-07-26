@@ -1,4 +1,7 @@
-﻿namespace ST.Repository.DataModel
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ST.Repository.DataModel
 {
     public class City
     {
@@ -18,6 +21,8 @@
             UF = uf;
             Person = list;
         }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string UF { get; set; } = null!;
