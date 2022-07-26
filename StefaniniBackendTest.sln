@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ST.Repository", "ST.Reposit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ST.IoC", "ST.IoC\ST.IoC.csproj", "{22DF45FF-15DC-49D7-9B68-F24C8CB7B791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.App", "ST.App\ST.App.csproj", "{AB075DB9-269B-4BD2-887D-A168BE4D56C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ST.App", "ST.App\ST.App.csproj", "{AB075DB9-269B-4BD2-887D-A168BE4D56C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.CrossCutting", "ST.CrossCutting\ST.CrossCutting.csproj", "{2A142755-B773-446B-8D9B-C7335C81DB06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ST.CrossCutting", "ST.CrossCutting\ST.CrossCutting.csproj", "{2A142755-B773-446B-8D9B-C7335C81DB06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ST.Service", "ST.Service\ST.Service.csproj", "{C2E6D5AF-8C43-48C0-93C8-C85479D5B921}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2A142755-B773-446B-8D9B-C7335C81DB06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A142755-B773-446B-8D9B-C7335C81DB06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A142755-B773-446B-8D9B-C7335C81DB06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2E6D5AF-8C43-48C0-93C8-C85479D5B921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2E6D5AF-8C43-48C0-93C8-C85479D5B921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2E6D5AF-8C43-48C0-93C8-C85479D5B921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E6D5AF-8C43-48C0-93C8-C85479D5B921}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
