@@ -21,8 +21,8 @@ namespace ST.Repository.Repositories
         }
         public async Task<PersonTO> ReadPerson(int id)
         {
-            var personData = await _personContext.People.Where(x => x.Id == id).FirstOrDefaultAsync() ?? new Person();
-            var personTO = new PersonTO(personData.Id,  personData.Name, personData.Age, personData.CPF, personData.CityId);
+            var personData = await _personContext.People.Where(x => x.Id == id).FirstOrDefaultAsync();
+            var personTO = personData != null ? new PersonTO(personData.Id,  personData.Name, personData.Age, personData.CPF, personData.CityId) : null;
             return personTO;
         }
         public async Task UpdatePerson(int id,PersonTO person)
@@ -36,19 +36,24 @@ namespace ST.Repository.Repositories
                 personData.CityId = person.CityId;
 
                 _personContext.People.Update(personData);
+                await _personContext.SaveChangesAsync();
             }
-            await _personContext.SaveChangesAsync();
         }
         public async Task DeletePerson(int id)
         {
             var personData = await _personContext.People.Where(x => x.Id == id).FirstOrDefaultAsync();
-            _personContext.People.Remove(personData);
-            await _personContext.SaveChangesAsync();
+            if (personData != null)
+            {
+                _personContext.People.Remove(personData);
+                await _personContext.SaveChangesAsync();
+            }
+            else
+                throw new Exception();
         }
         public async Task<CityTO> ReadCity(int id)
         {
-            var cityData = await _personContext.Cities.Where(x => x.Id == id).FirstOrDefaultAsync() ?? new City();
-            var cityTO = new CityTO(cityData.Id, cityData.Name, cityData.UF);
+            var cityData = await _personContext.Cities.Where(x => x.Id == id).FirstOrDefaultAsync();
+            var cityTO = cityData != null ? new CityTO(cityData.Id, cityData.Name, cityData.UF): null;
             return cityTO;
         }
         public async Task CreateCity(CityTO city)
@@ -64,9 +69,10 @@ namespace ST.Repository.Repositories
             {
                 cityData.Name = city.Name;
                 cityData.UF = city.UF;
+
                 _personContext.Cities.Update(cityData);
+                await _personContext.SaveChangesAsync();
             }
-            await _personContext.SaveChangesAsync();
         }
     }
 }

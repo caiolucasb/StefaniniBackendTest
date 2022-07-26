@@ -1,55 +1,54 @@
 using Microsoft.AspNetCore.Mvc;
-using ST.CrossCutting.Interfaces.Repositories;
+using ST.CrossCutting.Interfaces.Services;
 using ST.CrossCutting.DTO;
+using ST.CrossCutting.Models;
 
 namespace ST.App.Controllers
 {
     [ApiController]
     public class PersonController : ControllerBase
     {
-        private readonly ILogger<PersonController> _logger;
-        private readonly IPersonRepository _personRepository;
+        private readonly IPersonService _personService;
 
-        public PersonController(ILogger<PersonController> logger, IPersonRepository personRepository)
+        public PersonController(IPersonService personService)
         {
-            _logger = logger;
-            _personRepository = personRepository;
+            _personService = personService;
         }
 
         [HttpGet("Person/{id}")]
-        public async Task<PersonTO> GetPerson(int id)
+        public async Task<ReturnObject<PersonTO>> GetPerson(int id)
         {
-            return await _personRepository.ReadPerson(id);
+            return await _personService.GetPerson(id);
         }
         [HttpPost("Person")]
-        public async Task PostPerson([FromBody] PersonTO person)
+        public async Task<ReturnObject<PersonTO>> PostPerson([FromBody] PersonTO person)
         {
-            await _personRepository.CreatePerson(person);
+            return await _personService.PostPerson(person);
         }
         [HttpPut("Person/{id}")]
-        public async Task PutPerson(int id,[FromBody] PersonTO person)
+        public async Task<ReturnObject<PersonTO>> PutPerson(int id,[FromBody] PersonTO person)
         {
-            await _personRepository.UpdatePerson(id,person);
+            return await _personService.PutPerson(id,person);
         }
         [HttpDelete("Person")]
-        public async Task DeletePerson(int id)
+        public async Task<ReturnObject<PersonTO>> DeletePerson(int id)
         {
-            await _personRepository.DeletePerson(id);
+            return await _personService.DeletePerson(id);
         }
         [HttpGet("City/{id}")]
-        public async Task<CityTO> GetCity(int id)
+        public async Task<ReturnObject<CityTO>> GetCity(int id)
         {
-            return await _personRepository.ReadCity(id);
+            return await _personService.GetCity(id);
         }
         [HttpPost("City")]
-        public async Task PostCity([FromBody] CityTO city)
+        public async Task<ReturnObject<CityTO>> PostCity([FromBody] CityTO city)
         {
-            await _personRepository.CreateCity(city);
+            return await _personService.PostCity(city);
         }
         [HttpPut("City")]
-        public async Task PutCity(int id,[FromBody] CityTO city)
+        public async Task<ReturnObject<CityTO>> PutCity(int id,[FromBody] CityTO city)
         {
-            await _personRepository.UpdateCity(id, city);
+            return await _personService.PutCity(id, city);
         }
     }
 }
