@@ -17,5 +17,6 @@
     {
         public const string ERRO = "Ocorreu um erro inesperado.";
         public const string EmptyERRO = "Não foi localizado resultado para essa busca.";
+        public const string WrongParmsERRO = "Parâmetros de criação ou edição foram passados incorretamente";
     }
 }
