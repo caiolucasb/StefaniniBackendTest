@@ -11,8 +11,8 @@ using ST.Repository.Context;
 namespace ST.Repository.Migrations
 {
     [DbContext(typeof(PersonContext))]
-    [Migration("20220726023747_MyMigration")]
-    partial class MyMigration
+    [Migration("20220726072402_StMigration")]
+    partial class StMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
