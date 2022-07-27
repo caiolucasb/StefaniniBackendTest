@@ -29,3 +29,5 @@ Agora basta executar o seguinte comando
     > docker-compose up
 ```
 Assim que o projeto rodar acesse "http://localhost:8080/swagger"
+
+Obs: Como é necessario passar o campo CityId em pessoa, é necessario ter pelo menos uma cidade cadastrada antes de cadastrar uma pessoa!
